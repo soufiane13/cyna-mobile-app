@@ -100,7 +100,7 @@ export default function CartScreen() {
     }
   };
 
-// ==========================================
+  // ==========================================
   // UI - ÉTAT VIDE
   // ==========================================
   if (cart.length === 0) {
@@ -112,6 +112,7 @@ export default function CartScreen() {
             <Feather name="arrow-left" size={20} color="#A0A0A0" />
           </TouchableOpacity>
         </View>
+
         <View style={styles.emptyContainer}>
           <View style={styles.emptyIconBox}>
             <Feather name="box" size={40} color="#64748b" />

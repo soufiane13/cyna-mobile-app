@@ -115,8 +115,13 @@ function CustomDrawerContent() {
         {/* === NAVIGATION PRINCIPALE === */}
         <Text style={styles.sectionTitle}>GÉNÉRAL</Text>
         <CustomDrawerItem label="Accueil" iconName="home" active={pathname === '/'} onPress={() => router.push('/')} />
+        
         <CustomDrawerItem label="Catalogue" iconName="grid" active={pathname === '/category'} onPress={() => router.push('/category')} />
+        
         <CustomDrawerItem label="Mon Panier" iconName="shopping-cart" active={pathname === '/cart'} onPress={() => router.push('/cart')} />
+        
+        {/* FIX : On pointe la Recherche vers notre page fusionnée '/category' */}
+        
         <CustomDrawerItem label="Recherche" iconName="search" active={pathname === '/search'} onPress={() => router.push('/search')} />
 
         <View style={styles.divider} />
@@ -189,7 +194,6 @@ export default function RootLayout() {
     </CartProvider>
   );
 }
-
 // ==========================================
 // STYLES 
 // ==========================================
