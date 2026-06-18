@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // 🚀 Détection automatique de l'environnement (Émulateur Android vs Web/iOS)
-const BASE_URL = Platform.OS === 'android' ? 'http://10.0.2.2:3000' : 'http://localhost:3000';
+const BASE_URL = Platform.OS === 'android' ? 'http://10.0.2.2:3000' : 'https://cyna-api-d6b4.onrender.com';
 
 const api = axios.create({
   baseURL: BASE_URL,
