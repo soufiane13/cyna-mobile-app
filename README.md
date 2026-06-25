@@ -1,50 +1,92 @@
-# Welcome to your Expo app 👋
+# 📱 CYNA Defense - Application Mobile
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Bienvenue sur le dépôt de l'application mobile **CYNA Defense**. 
+Développée en **React Native** via le framework **Expo**, cette application est l'interface utilisateur mobile de notre écosystème. Elle communique en temps réel avec notre backend NestJS (Render) et s'appuie sur Supabase pour la gestion sécurisée des données.
 
-## Get started
+---
 
-1. Install dependencies
+## 🛠️ Stack Technique
 
-   ```bash
-   npm install
-   ```
+* **Frontend Mobile :** React Native, Expo, Expo Router
+* **Backend API (Connecté) :** NestJS (Render)
+* **Base de données / Auth :** Supabase
+* **Paiement :** Stripe
+* **Tests Unitaires :** Jest & React Native Testing Library (Mock Tests)
+* **Build & Déploiement :** Expo Application Services (EAS Build)
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🚀 Guide d'installation
 
-In the output, you'll find options to open the app in a
+### 1. Prérequis
+Assurez-vous d'avoir installé sur votre machine :
+* [Node.js](https://nodejs.org/) (Version LTS recommandée)
+* L'application **Expo Go** sur votre smartphone (iOS ou Android), ou un émulateur local (Android Studio / Xcode).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### 2. Cloner et installer les dépendances
+Naviguez dans le dossier de l'application mobile et installez les dépendances. 
+*⚠️ Important : Nous utilisons le flag `--legacy-peer-deps` pour garantir la stabilité de l'environnement de test face aux exigences strictes des dépendances React 19.*
 
 ```bash
-npm run reset-project
+git clone [URL_DE_REPO_GITHUB]
+cd cyna-mobile-app
+npm install --legacy-peer-deps
+```
+3. Variables d'environnement (.env)
+Créez un fichier .env à la racine du projet. L'application utilisant Expo, toutes les variables exposées doivent être préfixées par EXPO_PUBLIC_.
+
+
+# URL de votre API Backend (NestJS)
+```
+EXPO_PUBLIC_API_URL=[https://votre-backend-render.com/api](https://votre-backend-render.com/api)
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+# Configuration Supabase (Clés Publiques UNIQUEMENT)
+```
+EXPO_PUBLIC_SUPABASE_URL=[https://vvqznavlkqjelpskjplh.supabase.co](https://vvqznavlkqjelpskjplh.supabase.co)
+EXPO_PUBLIC_SUPABASE_ANON_KEY=votre_cle_anonyme_publique
+```
 
-## Learn more
+# Clé publique Stripe (Publishable Key)
+```
+EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_votre_cle_publique
+```
+💻 Démarrer l'application (Développement local)
+Pour lancer le serveur de développement local :
 
-To learn more about developing your project with Expo, look at the following resources:
+```Bash
+npx expo start
+```
+Scannez le QR Code affiché dans le terminal avec l'application Expo Go sur votre téléphone.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Ou appuyez sur la touche a pour l'ouvrir sur un émulateur Android, et i pour un simulateur iOS.
 
-## Join the community
+🧪 Tests et Assurance Qualité (QA)
+La stabilité de notre interface et de notre logique métier est assurée par une suite de tests unitaires exécutée via Jest.
 
-Join our community of developers creating universal apps.
+Pour lancer la validation du code :
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```Bash
+npm run test
+```
+Pour obtenir un rapport détaillé des tests (verbose) :
+
+```Bash
+npm run test -- --verbose
+```
+📦 Compilation et Déploiement (APK / AAB)
+Le projet est configuré pour être compilé directement dans le cloud grâce à l'infrastructure Expo EAS (Expo Application Services), ce qui évite de surcharger la machine locale.
+
+Pour générer un fichier d'installation (ex: un APK pour Android) :
+
+Connectez-vous à votre compte Expo CLI :
+
+```Bash
+npx expo login
+```
+Lancez le build Android :
+
+```Bash
+eas build -p android --profile preview
+```
+Une fois le processus terminé, suivez le lien généré dans le terminal pour télécharger l'application compilée.
